@@ -14,11 +14,9 @@ feb<-interval(ymd_hms("2007-02-01 00:00:00", tz=""), ymd_hms("2007-02-02 23:59:5
 electric<-subset(electric, electric$Date1 %within% feb) %>% 
   select(Date1, Global_active_power:Sub_metering_3)
 
-#Create PLot 1
+#Create PLot 1 and Export to PNG
+png(filename="plot1.png")
 hist(electric$Global_active_power, breaks=15, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
-
-#Export to PNG
-dev.copy(png,'plot1.png')
 dev.off()
 
 
